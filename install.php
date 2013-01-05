@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `".DB_PREF."boards` (
   `max_filesize` int(10) unsigned NOT NULL DEFAULT '2048',
   `max_threads` int(10) unsigned NOT NULL DEFAULT '100',
   `max_replyimages` int(10) unsigned NOT NULL DEFAULT '200',
-  `is_sfw` tinyint(1) NOT NULL DEFAULT '1',
-  `is_text` tinyint(1) NOT NULL DEFAULT '0',
+  `sfw` tinyint(1) NOT NULL DEFAULT '1',
+  `text` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -82,6 +82,9 @@ CREATE TABLE IF NOT EXISTS `".DB_PREF."users` (
 	$user = $_POST['user'] ? $_POST['user'] : 'admin';
 	$pass = $_POST['pass'] ? $_POST['pass'] : 'password';
 	mysqli_query($db,"INSERT INTO `".DB_PREF."users` VALUES('','".filter_alphanum($user)."','".sha1($pass)."','admin')");
+	
+	// Create /b/ - Random (primary board)
+	mysqli_query($db,"INSERT INTO `".DB_PREF."boards` VALUES('1','b','Random','jpg,png,gif','2048','100','200','0','0')");
 	
 	// Log in to administrator panel
 	setcookie('ch_auth',$user.'|'.md5(sha1($pass)),time() + WEEK * 2);

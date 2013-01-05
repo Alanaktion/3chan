@@ -1,5 +1,16 @@
 <?php
 require_once 'config.php';
+
+// Get requested page/board/thread
+$pg = ltrim($_SERVER['REQUEST_URI'],rtrim($_SERVER['SCRIPT_NAME'],'index.php'));
+$pg = substr($pg,0,strpos($pg,'?'));
+$pg = explode('/',$pg);
+
+list($board,$subpage,$thread) = array($pg[0],$pg[1],$pg[2]);
+
+// Check if board exists
+
+
 ?>
 <!doctype html>
 <html>

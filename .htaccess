@@ -1,6 +1,9 @@
 Options -Multiviews
 Options +FollowSymLinks
 
+ErrorDocument 404 /pg/404.php
+ErrorDocument 403 /pg/403.php
+
 <FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
 Order Allow,Deny
 Deny from all

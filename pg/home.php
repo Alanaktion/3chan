@@ -1,9 +1,3 @@
-<?php
-require_once 'config.php';
-require_once 'common.php';
-
-require_once 'pg/admin-preauth.php';
-?>
 <!doctype html>
 <html>
 <head>
@@ -21,9 +15,36 @@ require_once 'pg/admin-preauth.php';
 	a,a:link,a:visited,a:active {
 		color: #800;
 	}
+	h1 {
+		text-align: center;
+	}
+	.box {
+		background: #ffe;
+		border: 1px solid #800;
+		padding: 0 5px 5px;
+		margin-bottom: 5px;
+	}
+	.box h2 {
+		background: #FCA;
+		color: #800;
+		margin: 0 0 5px;
+		margin: 0 -5px 5px;
+		padding: 0 5px;
+		line-height: 26px;
+		font-size: 131%;
+		font-weight: bold;
+	}
 	</style>
 </head>
 <body>
 	<h1><?php echo CHAN_TITLE; ?></h1>
+	<div class="box" id="boards">
+		<h2>Boards</h2>
+<?php
+$list = board_list();
+foreach($list as $b)
+	echo '<a href="'.$a_home.$b['slug'].'/" title="'.$b['name'].'">'.$b['name'].'</a><br>';
+?>
+	</div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 	<title><?php echo CHAN_TITLE; ?> - Log In</title>
 	<meta name="author" content="Alan Hardman, http://imalan.tk">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" href="css/yotsubanew.css">
+	<link rel="stylesheet" href="../css/yotsubanew.css">
 	<style type="text/css">
 	body {
 		max-width: 750px;
@@ -42,8 +42,8 @@
 <body>
 	<h1><?php echo CHAN_TITLE; ?></h1>
 	<p>Administrators and Moderators, log in here.<br>
-Other users, use <a href="faq/#tripcodes">tripcodes</a> to protect your identity.</p>
-	<form action="admin.php" method="post">
+Other users, use <a href="../faq/#tripcodes">tripcodes</a> to protect your identity.</p>
+	<form action="../admin.php" method="post">
 		<label>Username: <input type="text" name="user"></label>
 		<label>Password: <input type="password" name="pass"></label>
 		<button type="submit">Log In</button>

@@ -31,4 +31,15 @@ function filter_num($str) {
 	return preg_replace('/([^0-9])/','',$str);
 }
 
+// Get the list of boards
+function board_list() {
+	global $db;
+	$q = mysqli_query($db,"SELECT `id`,`slug`,`name`,`sfw`,`text` FROM `".DB_PREF."boards`");
+	$a = array();
+	while($r = mysqli_fetch_assoc($q))
+		$a[$r['id']] = $r;
+	mysqli_free_result($q);
+	return $a;
+}
+
 ?>

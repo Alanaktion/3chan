@@ -1,0 +1,3 @@
+# Directory should not be accessible
+Order Allow,Deny
+Deny from all

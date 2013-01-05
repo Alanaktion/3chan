@@ -52,6 +52,7 @@ define('CHAN_TITLE','".addslashes($_POST['title'] ? $_POST['title'] : '3CHAN')."
 	) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;");
 	mysqli_query($db,"CREATE TABLE IF NOT EXISTS `".DB_PREF."posts` (
 		`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+		`board` int(10) unsigned NOT NULL,
 		`thread` bigint(20) unsigned NOT NULL,
 		`name` tinytext NOT NULL,
 		`email` tinytext NOT NULL,
@@ -104,7 +105,7 @@ define('CHAN_TITLE','".addslashes($_POST['title'] ? $_POST['title'] : '3CHAN')."
 	<link rel="stylesheet" href="css/yotsubanew.css">
 	<style type="text/css">
 	body {
-		max-width: 960px;
+		max-width: 750px;
 		margin: 5px auto;
 	}
 	p {

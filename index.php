@@ -8,9 +8,8 @@ $pg = explode('/',$pg);
 
 list($board,$subpage,$thread) = array($pg[0],$pg[1],$pg[2]);
 
-// Check if board exists
-
-
+// Home page
+if(!$board) {
 ?>
 <!doctype html>
 <html>
@@ -24,3 +23,9 @@ list($board,$subpage,$thread) = array($pg[0],$pg[1],$pg[2]);
 	<h1><?php echo CHAN_TITLE; ?></h1>
 </body>
 </html>
+<?php
+} else {
+
+
+}
+?>
